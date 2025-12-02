@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+app.use(express.static('public'))
+require('dotenv').config()
 
 const RESTAURANT = {
   name: 'The Green Byte Bistro',
@@ -52,7 +54,7 @@ const RESTAURANT = {
 
 
 app.get('/', (req, res) => {
-  res.render('home.ejs', {RESTAURANT});
+  res.render('home.ejs', RESTAURANT);
 });
 
 
@@ -61,12 +63,12 @@ res.render('menu.ejs',{menu: RESTAURANT.menu})
 })
 
 app.get('/menu/:category', (req,res) =>{
-    RESTAURANT.menu.category == req.params.category 
-    const menuItems  = RESTAURANT.menu.filter (menuCat=>{
-         return menuCat 
+    // RESTAURANT.menu.category == req.params.category 
+    const menuItems  = RESTAURANT.menu.filter ((menuCat)=>{
+         return menuCat.category  == req.params.category 
    })
 
-     res.render('category.ejs',{menuItems})
+     res.render('category.ejs',menuItems)
 })
 
 

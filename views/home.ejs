@@ -5,20 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <%= RESTAURANT.name %>
+        <%= name %>
     </title>
 </head>
 
 <body>
     <%- include('./partials/nav') %>
     <h1>Home Page</h1>
-    <p> Name: <%= RESTAURANT.name %>
+    <p> Name: <%= name %>
     </p>
-    <p> Address: <%= RESTAURANT.address %>
+    <p> Address: <%= address %>
     </p>
-    <p> Phone: <%= RESTAURANT.phone %>
+    <p> Phone: <%= phone %>
     </p>
-    <% if(RESTAURANT.isOpen===true) {%>
+    <% if(isOpen) {%>
         <p>Yes we are open!</p>
         <% } else { %>
             <p>Sorry, we are closed.</p>
